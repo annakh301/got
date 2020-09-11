@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-12">
+        <a href="#" class="list-group-item clearfix" *ngFor="let book of books">
+            <div class="pull-left">
+                <h4 class="list-group-item-heading">{{book.name}}</h4>
+                <p class="list-group-item-text">{{book.authors}}</p>
+            </div>
+            <span class="pull-left">
+                <img src="" class="img-responsive" alt="">
+            </span>
+        </a>
+        <app-book></app-book>
+    </div>
+</div>

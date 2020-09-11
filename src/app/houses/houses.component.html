@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-12">
+        <a href="#" class="list-group-item clearfix" *ngFor="let house of houses">
+            <div class="pull-left">
+                <h4 class="list-group-item-heading">{{house.name}}</h4>
+                <p class="list-group-item-text">{{house.region}}</p>
+            </div>
+            <span class="pull-left">
+                <img src="" class="img-responsive" alt="">
+            </span>
+        </a>
+        <app-book></app-book>
+    </div>
+</div>
