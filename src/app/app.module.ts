@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CharacterService } from './characters/character.service';
 import { HouseService } from './houses/house.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from "@angular/material/card";
+import { CardComponent } from './card/card.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 @NgModule({
@@ -26,13 +29,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CharactersComponent,
     CharacterComponent,
     HouseComponent,
-    BookComponent
+    BookComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatCardModule,
+    FlexLayoutModule
 
   ],
   providers: [BookService, CharacterService, HouseService],
