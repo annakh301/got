@@ -19,6 +19,7 @@ import { MatCardModule } from "@angular/material/card";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatCardModule,
     FlexLayoutModule, 
     MatTabsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    AppRoutingModule
 
   ],
   providers: [BookService, CharacterService, HouseService],
