@@ -3,6 +3,7 @@ import { Book } from './book.model';
 import { BookService } from './book.service';
 import { ApiService } from '../api.service';
 import { Subscription } from 'rxjs';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-books',
@@ -13,6 +14,11 @@ import { Subscription } from 'rxjs';
 export class BooksComponent implements OnInit, OnDestroy {
   books: Book[];
   subscription: Subscription;
+  length: number = 12;
+  pageSize: number = 10;
+  pageEvent: PageEvent;
+  pageIndex: number;
+  pageNumber: number;
 
   constructor(private bookService: BookService, private apiService: ApiService) { }
 
@@ -24,10 +30,16 @@ export class BooksComponent implements OnInit, OnDestroy {
         }
       );
     this.books = this.bookService.getBooks();
-    this.apiService.getBooks();
+    this.apiService.getBooks("1", "10");
   }
 
-  ngOnDestroy(){
+  onPaginate(pageEvent: PageEvent) {
+    this.pageSize = pageEvent.pageSize;
+    this.pageNumber = +pageEvent.pageIndex + 1;
+    this.apiService.getBooks(this.pageNumber.toString(), this.pageSize.toString());
+  }
+
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 

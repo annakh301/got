@@ -16,8 +16,9 @@ import { CharacterService } from './characters/character.service';
 import { HouseService } from './houses/house.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from "@angular/material/card";
-import { CardComponent } from './card/card.component';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -29,8 +30,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     CharactersComponent,
     CharacterComponent,
     HouseComponent,
-    BookComponent,
-    CardComponent
+    BookComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +38,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule, 
+    MatTabsModule,
+    MatPaginatorModule
 
   ],
   providers: [BookService, CharacterService, HouseService],

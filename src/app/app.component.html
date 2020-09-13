@@ -2,12 +2,18 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>I am working!</h1>
-            <app-characters></app-characters>
-            <hr>
-            <app-books></app-books>
-            <hr>
-            <app-houses></app-houses>
+            <mat-tab-group mat-align-tabs="start" dynamicHeight>
+                <mat-tab label="Characters">
+                    <app-characters></app-characters>
+                </mat-tab>
+                <mat-tab label="Houses">
+                    <app-houses></app-houses>
+                </mat-tab>
+                <mat-tab label="Books">
+                    <app-books></app-books>
+                </mat-tab>
+            </mat-tab-group>
+
         </div>
     </div>
 </div>

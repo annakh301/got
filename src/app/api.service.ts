@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 import { BookService } from './books/book.service';
 import { HouseService } from './houses/house.service';
@@ -9,7 +9,9 @@ import { Character } from './characters/character.model';
 import { Book } from './books/book.model';
 import { House } from './houses/house.model';
 
+
 @Injectable({ providedIn: 'root' })
+
 export class ApiService {
     constructor(
         private http: HttpClient,
@@ -17,23 +19,39 @@ export class ApiService {
         private characterService: CharacterService,
         private houseService: HouseService) { }
 
-    getBooks() {
+    getBooks(pageNumber?: string, pageSize?: string) {
+
+        const searchParams = new HttpParams()
+            .set('page', pageNumber)
+            .set('pageSize', pageSize);
         this.http
-            .get<Book[]>('https://anapioficeandfire.com/api/books/')
+            .get<Book[]>('https://anapioficeandfire.com/api/books',
+                { params: searchParams })
             .subscribe(books => {
                 this.bookService.setBooks(books);
+                console.log(books)
+
             });
     }
-    getCharacters() {
+
+    getCharacters(pageNumber?: string, pageSize?: string) {
+        const searchParams = new HttpParams()
+            .set('page', pageNumber)
+            .set('pageSize', pageSize);
         this.http
-            .get<Character[]>('https://anapioficeandfire.com/api/characters/')
+            .get<Character[]>('https://anapioficeandfire.com/api/characters',
+                { params: searchParams })
             .subscribe(characters => {
                 this.characterService.setCharacters(characters);
             })
     }
-    getHouses() {
+    getHouses(pageNumber?: string, pageSize?: string) {
+        const searchParams = new HttpParams()
+            .set('page', pageNumber)
+            .set('pageSize', pageSize);
         this.http
-            .get<House[]>('https://anapioficeandfire.com/api/houses/')
+            .get<House[]>('https://anapioficeandfire.com/api/houses',
+                { params: searchParams })
             .subscribe(houses => {
                 this.houseService.setHouses(houses);
             })

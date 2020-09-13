@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { Character } from './character.model';
 import { CharacterService } from './character.service';
 import { ApiService } from '../api.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-characters',
@@ -13,6 +14,11 @@ import { ApiService } from '../api.service';
 export class CharactersComponent implements OnInit, OnDestroy {
   characters: Character[];
   subscription: Subscription;
+  length: number = 2138;
+  pageSize: number = 10;
+  pageEvent: PageEvent;
+  pageIndex: number;
+  pageNumber: number;
 
   constructor(
     private characterService: CharacterService,
@@ -26,7 +32,13 @@ export class CharactersComponent implements OnInit, OnDestroy {
         }
       );
     this.characters = this.characterService.getCharacters();
-    this.apiService.getCharacters();
+    this.apiService.getCharacters("1", "10");
+  }
+
+  onPaginate(pageEvent: PageEvent) {
+    this.pageSize = pageEvent.pageSize;
+    this.pageNumber = +pageEvent.pageIndex + 1;
+    this.apiService.getCharacters(this.pageNumber.toString(), this.pageSize.toString());
   }
 
   ngOnDestroy() {
