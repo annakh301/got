@@ -30,7 +30,6 @@ export class ApiService {
                 { params: searchParams })
             .subscribe(books => {
                 this.bookService.setBooks(books);
-                console.log(books)
 
             });
     }

@@ -1,18 +1,19 @@
 <div class="row">
     <div class="col-md-12">
         <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="2rem" [style.margin-top]="'15px'" fxLayoutAlign="space-evenly stretch">
-            <mat-card class="example-card" *ngFor="let house of houses">
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title style="line-height: 1.5; height: 3em; overflow: hidden">{{house.name}}
-                    </mat-card-title>
-                    <mat-card-subtitle>{{house.region}}</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image src="\assets\images\got_iron_throne _512px.png" alt="{{house.name}}">
-            </mat-card>
+            <div *ngFor="let house of houses">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title style="line-height: 1.5; height: 3em; overflow: hidden">{{house.name}}
+                        </mat-card-title>
+                        <mat-card-subtitle>{{house.region}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src="\assets\images\got_iron_throne _512px.png" alt="{{house.name}}">
+                </mat-card>
+            </div>
         </div>
         <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50]" (page)="onPaginate($event)">
         </mat-paginator>
-        <!--  <app-book></app-book> -->
     </div>
 </div>

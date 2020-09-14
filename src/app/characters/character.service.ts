@@ -8,7 +8,7 @@ export class CharacterService {
     charactersChanged = new Subject<Character[]>();
     characterChanged = new Subject<Character>();
     private characters: Character[] = [];
-    private character: Character;
+    private character: Character = new Character();
     constructor() { }
 
     setCharacters(characters: Character[]) {
@@ -17,7 +17,6 @@ export class CharacterService {
     }
 
     setCharacter(character: Character) {
-        console.log(character)
         this.character = character;
         this.characterChanged.next(this.character);
     }
