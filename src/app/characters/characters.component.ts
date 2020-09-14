@@ -44,18 +44,19 @@ export class CharactersComponent implements OnInit, OnDestroy {
     this.apiService.getCharacters(this.pageNumber.toString(), this.pageSize.toString());
   }
 
-  getPic(srcPath: string){
+  getPic(srcPath: string) {
     this.http
-        .get<Search>(srcPath)
-        .subscribe(response =>{
-          for (var i = 0; i < response.items.length; i++) {
-            var item = response.items[i];
-            // in production code, item.htmlTitle should have the HTML entities escaped.
-            document.getElementById("content").innerHTML += item.link;
-          }
-    
-        })
-}
+      .get<Search>(srcPath)
+      .subscribe(response => {
+        console.log(response)
+        /* for (var i = 0; i < response.items.length; i++) {
+          var item = response.items[i];
+          // in production code, item.htmlTitle should have the HTML entities escaped.
+          document.getElementById("content").innerHTML += item.thumbnailLink;
+        } */
+
+      })
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
