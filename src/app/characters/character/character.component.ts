@@ -22,13 +22,10 @@ export class CharacterComponent implements OnInit {
   ngOnInit(): void {
     this.route.params
       .subscribe(
-        async (params: Params) => {
+        (params: Params) => {
           this.id = +params['id'];
           //TODO: get the state to the different component
-          console.log(this.id)
-          await this.apiService.getOneCharacter(this.id.toString())
-          this.character = this.characterService.getCharacter();
-          console.log(this.character.name)
+          this.apiService.getCharacter(this.id.toString())
         }
       )
   }

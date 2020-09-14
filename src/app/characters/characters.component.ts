@@ -4,6 +4,8 @@ import { Character } from './character.model';
 import { CharacterService } from './character.service';
 import { ApiService } from '../api.service';
 import { PageEvent } from '@angular/material/paginator';
+import { HttpClient } from '@angular/common/http';
+import { Search } from '../search.model';
 
 @Component({
   selector: 'app-characters',
@@ -22,7 +24,8 @@ export class CharactersComponent implements OnInit, OnDestroy {
 
   constructor(
     private characterService: CharacterService,
-    private apiService: ApiService) { }
+    private apiService: ApiService,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
     this.subscription = this.characterService.charactersChanged
@@ -40,6 +43,19 @@ export class CharactersComponent implements OnInit, OnDestroy {
     this.pageNumber = +pageEvent.pageIndex + 1;
     this.apiService.getCharacters(this.pageNumber.toString(), this.pageSize.toString());
   }
+
+  getPic(srcPath: string){
+    this.http
+        .get<Search>(srcPath)
+        .subscribe(response =>{
+          for (var i = 0; i < response.items.length; i++) {
+            var item = response.items[i];
+            // in production code, item.htmlTitle should have the HTML entities escaped.
+            document.getElementById("content").innerHTML += item.link;
+          }
+    
+        })
+}
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
