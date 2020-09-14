@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="2rem" fxLayoutAlign="space-evenly stretch">
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="2rem" [style.margin-top]="'15px'" fxLayoutAlign="space-evenly stretch">
             <mat-card class="example-card" *ngFor="let house of houses">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
@@ -8,7 +8,7 @@
                     </mat-card-title>
                     <mat-card-subtitle>{{house.region}}</mat-card-subtitle>
                 </mat-card-header>
-                <!--  <img mat-card-image src="\assets\images\img-got-houses\375px-{{house.name}}.png" alt="{{house.name}}"> -->
+                <img mat-card-image src="\assets\images\got_iron_throne _512px.png" alt="{{house.name}}">
             </mat-card>
         </div>
         <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50]" (page)="onPaginate($event)">

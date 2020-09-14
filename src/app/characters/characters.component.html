@@ -1,24 +1,29 @@
 <div class="row">
     <div class="col-md-12">
-        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="2rem" fxLayoutAlign="space-evenly stretch">
+
+
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="2rem" [style.margin-top]="'15px'" fxLayoutAlign="space-evenly stretch">
             <mat-card class="example-card" *ngFor="let char of characters; let i = index" [index]="i">
                 <a style="cursor: pointer;" [routerLink]="[i]">
                     <mat-card-header>
                         <div mat-card-avatar class="example-header-image"></div>
-                        <mat-card-title style="line-height: 1.5; height: 3em; overflow: hidden">{{char.name}}
+                        <mat-card-title style="line-height: 1.5; height: 3em; overflow: hidden;">
+                            {{char.name}}
                         </mat-card-title>
+                        <mat-card-subtitle> {{char.aliases}}</mat-card-subtitle>
                     </mat-card-header>
-                    <!-- <img mat-card-image alt="{{char.aliases}}"> -->
+                    <img mat-card-image src="\assets\images\got_jon_snow_512px.png " alt="{{char.aliases}}">
                 </a>
 
             </mat-card>
         </div>
-        <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50]" (page)="onPaginate($event)">
+        <mat-paginator [length]="length " [pageSize]="pageSize " [pageSizeOptions]="[5, 10, 25, 50] " (page)="onPaginate($event) ">
         </mat-paginator>
 
     </div>
     <hr>
-    <div class="col-md-12">
+    <div class="col-md-12 ">
         <app-character></app-character>
-    </div>
-</div>
+        <div>
+
+        </div>

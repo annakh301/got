@@ -1,4 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+    font-family: 'GOT';
+    src: url('./assets/css/fonts/game_of_thrones-webfont.woff') format('woff'), url('./assets/css/fonts/game_of_thrones-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#gameofthrones {
+    margin: 0;
+    font-family: 'GOT';
+}
