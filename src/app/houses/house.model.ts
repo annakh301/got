@@ -1,6 +1,3 @@
-
-import { Character } from '../characters/character.model';
-
 export class House {
     private url: string;
     private name: string;
@@ -9,18 +6,18 @@ export class House {
     private words: string;
     private titles: string[];
     private seats: string[];
-    private currentLord: Character;
-    private heir: Character;
-    private overlord: House;
+    private currentLordId: string;
+    private heirId: string;
+    private overlord: string;
     private founded: string;
     private founder: string;
     private diedOut: string;
     private ancestralWeapons: string[];
-    private cadetBranches: House[];
-    private swornMembers: Character[]
+    private cadetBranches: string[];
+    private swornMemberIds: string[]
 
 
-    constructor($url: string, $name: string, $region: string, $coatOfArms: string, $words: string, $titles: string[], $seats: string[], $currentLord: Character, $heir: Character, $overlord: House, $founded: string, $founder: string, $diedOut: string, $ancestralWeapons: string[], $cadetBranches: House[]) {
+    constructor($url: string, $name: string, $region: string, $coatOfArms: string, $words: string, $titles: string[], $seats: string[], $currentLord: string, $heir: string, $overlord: string, $founded: string, $founder: string, $diedOut: string, $ancestralWeapons: string[], $cadetBranches: string[]) {
         this.url = $url;
         this.name = $name;
         this.region = $region;
@@ -28,8 +25,8 @@ export class House {
         this.words = $words;
         this.titles = $titles;
         this.seats = $seats;
-        this.currentLord = $currentLord;
-        this.heir = $heir;
+        this.currentLordId = $currentLord;
+        this.heirId = $heir;
         this.overlord = $overlord;
         this.founded = $founded;
         this.founder = $founder;

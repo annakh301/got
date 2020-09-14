@@ -15,7 +15,6 @@ const appRoutes: Routes = [
     { path: 'houses/:id', component: HouseComponent },
     { path: 'books', component: BooksComponent },
     { path: 'books/:id', component: BookComponent }
-
 ];
 
 @NgModule({

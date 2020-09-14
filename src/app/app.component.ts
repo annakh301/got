@@ -7,24 +7,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  name = 'Game of Thrones';
+  title = 'Game of Thrones';
   navLinks: any[];
   activeLinkIndex = -1;
 
   constructor(private router: Router) {
     this.navLinks = [{
       label: 'Characters',
-      link: './characters',
+      link: '/characters',
       index: 0
     },
     {
       label: 'Houses',
-      link: './houses',
+      link: '/houses',
       index: 1
     },
     {
       label: 'Books',
-      link: './books',
+      link: '/books',
       index: 2
     }];
   }

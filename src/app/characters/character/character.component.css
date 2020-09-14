@@ -1,0 +1,21 @@
+.bio-image {
+    text-align: center;
+}
+
+.bio-image img {
+    border-radius: 50%;
+}
+
+.bio-content {
+    text-align: left;
+}
+
+.bio-content p {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.gameofthrones {
+    margin: 0;
+    font-family: 'GOT';
+}

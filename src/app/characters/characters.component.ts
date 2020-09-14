@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Character } from './character.model';
 import { CharacterService } from './character.service';
+import { Character } from './character.model';
 import { ApiService } from '../api.service';
 import { PageEvent } from '@angular/material/paginator';
 import { HttpClient } from '@angular/common/http';
@@ -34,7 +34,6 @@ export class CharactersComponent implements OnInit, OnDestroy {
           this.characters = characters;
         }
       );
-    this.characters = this.characterService.getCharacters();
     this.apiService.getCharacters("1", "10");
   }
 
