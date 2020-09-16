@@ -1,20 +1,20 @@
 export class House {
-    private url: string;
-    private name: string;
-    private region: string;
-    private coatOfArms: string;
-    private words: string;
-    private titles: string[];
-    private seats: string[];
-    private currentLordId: string;
-    private heirId: string;
-    private overlord: string;
-    private founded: string;
-    private founder: string;
-    private diedOut: string;
-    private ancestralWeapons: string[];
-    private cadetBranches: string[];
-    private swornMemberIds: string[]
+    public url: string;
+    public name: string;
+    public region: string;
+    public coatOfArms: string;
+    public words: string;
+    public titles: string[];
+    public seats: string[];
+    public currentLordId: string;
+    public heirId: string;
+    public overlord: string;
+    public founded: string;
+    public founder: string;
+    public diedOut: string;
+    public ancestralWeapons: string[];
+    public cadetBranches: string[];
+    public swornMemberIds: string[]
 
 
     constructor($url: string, $name: string, $region: string, $coatOfArms: string, $words: string, $titles: string[], $seats: string[], $currentLord: string, $heir: string, $overlord: string, $founded: string, $founder: string, $diedOut: string, $ancestralWeapons: string[], $cadetBranches: string[]) {
