@@ -8,6 +8,7 @@ import { CharacterService } from './characters/character.service';
 import { Character } from './characters/character.model';
 import { Book } from './books/book.model';
 import { House } from './houses/house.model';
+import { JsonPipe } from '@angular/common';
 
 
 @Injectable({ providedIn: 'root' })
@@ -29,7 +30,6 @@ export class ApiService {
                 { params: searchParams })
             .subscribe(books => {
                 this.bookService.setBooks(books);
-                console.log(books)
 
             });
     }
@@ -45,6 +45,15 @@ export class ApiService {
                 this.characterService.setCharacters(characters);
             })
     }
+
+    getCharacter(id: string) {
+        this.http
+            .get<Character>('https://anapioficeandfire.com/api/characters/'+id)
+            .subscribe(character => {
+                this.characterService.setCharacter(character);
+            })
+    }
+
     getHouses(pageNumber?: string, pageSize?: string) {
         const searchParams = new HttpParams()
             .set('page', pageNumber)

@@ -6,12 +6,19 @@ import { Character } from './character.model';
 export class CharacterService {
 
     charactersChanged = new Subject<Character[]>();
+    characterChanged = new Subject<Character>();
     private characters: Character[] = [];
+    private character: Character = new Character();
     constructor() { }
 
     setCharacters(characters: Character[]) {
         this.characters = characters;
         this.charactersChanged.next(this.characters.slice());
+    }
+
+    setCharacter(character: Character) {
+        this.character = character;
+        this.characterChanged.next(this.character);
     }
 
     getCharacters() {

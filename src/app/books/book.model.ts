@@ -1,5 +1,3 @@
-import { Character } from '../characters/character.model';
-
 export class Book {
     public url: string;
     public name: string;
@@ -10,7 +8,7 @@ export class Book {
     public country: string;
     public mediaType: string;
     public released: Date;
-    public characters: Character[];
+    public characterIds: string[];
 
     constructor(
         url: string,
@@ -21,7 +19,8 @@ export class Book {
         publisher: string,
         country: string,
         mediaType: string,
-        released: Date
+        released: Date,
+        characters: string[]
     ) {
         this.url = url;
         this.name = name;
@@ -32,6 +31,7 @@ export class Book {
         this.country = country;
         this.mediaType = mediaType;
         this.released = released;
+        this.characterIds = characters;
 
     }
 }
