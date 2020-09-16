@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from "@angular/material/card";
@@ -11,6 +11,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
+import { IdPipe } from './id.pipe';
 
 import { BookService } from './books/book.service';
 import { CharacterService } from './characters/character.service';
@@ -25,6 +26,16 @@ import { CharacterComponent } from './characters/character/character.component';
 import { HouseComponent } from './houses/house/house.component';
 import { BookComponent } from './books/book/book.component';
 
+const appRoutes: Routes = [
+  { path: '', redirectTo: '/characters', pathMatch: 'full' },
+  { path: 'characters', component: CharactersComponent },
+  { path: 'houses', component: HousesComponent },
+  { path: 'books', component: BooksComponent },
+  { path: 'characters/:id', component: CharacterComponent },
+  { path: 'houses/:id', component: HouseComponent },
+  { path: 'books/:id', component: BookComponent }
+];
+
 
 @NgModule({
   declarations: [
@@ -35,7 +46,8 @@ import { BookComponent } from './books/book/book.component';
     BooksComponent,
     CharacterComponent,
     HouseComponent,
-    BookComponent
+    BookComponent,
+    IdPipe
   ],
   imports: [
     BrowserModule,
@@ -48,7 +60,7 @@ import { BookComponent } from './books/book/book.component';
     MatCardModule,
     MatChipsModule,
     MatPaginatorModule,
-    AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
 
   ],
   providers: [BookService, CharacterService, HouseService],
