@@ -1,3 +1,6 @@
+import { Book } from '../books/book.model';
+import { House } from '../houses/house.model';
+
 export class Character {
 
     public url: string;
@@ -11,14 +14,14 @@ export class Character {
     public fatherId: string;
     public motherId: string;
     public spouseId: string;
-    public allegianceIds: string[];
-    public bookIds: string[];
-    public povBookIds: string[];
+    public allegianceIds: House["url"][];
+    public bookIds: Book["url"][];
+    public povBookIds: Book["url"][];
     public tvSeries: string[];
     public playedBy: string;
 
 
-    constructor($url?: string, $name?: string, $gender?: string, $culture?: string, $born?: string, $died?: string, $titles?: string[], $aliases?: string[], $father?: string, $mother?: string, $spouse?: string, $allegiances?: string[], $bookIds?: string[], $povBookIds?: string[], $tvSeries?: string[], $playedBy?: string) {
+    constructor($url: string, $name?: string, $gender?: string, $culture?: string, $born?: string, $died?: string, $titles?: string[], $aliases?: string[], $father?: string, $mother?: string, $spouse?: string, $allegiances?: string[], $bookIds?: string[], $povBookIds?: string[], $tvSeries?: string[], $playedBy?: string) {
         this.url = $url;
         this.name = $name;
         this.gender = $gender;

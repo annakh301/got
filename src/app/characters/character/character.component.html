@@ -1,0 +1,59 @@
+<div class="container-fluid" [style.margin-top]="'15px'">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="bio-image">
+                        <img src="\assets\images\got_jon_snow_512px.png" alt="image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="bio-content">
+                <h1>Hi there, I'm {{character?.name}} or also known as {{character?.aliases}}</h1>
+                <h6>I am coming from {{character?.culture}}. I was born in {{character?.born}}a fresh web designer and I create custom web designs. I'm skilled at writing well-designed, testable and efficient code using current best practices in Web development.
+                    I'm a fast learner, hard worker and team player who is proficient in making creative and innovative web pages.</h6>
+                <p>P.S I have no special talent, I'm just passionately curious ;)</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <p>{{character?.name}}</p>
+            <p>
+                My daughter is good looking, with pleasant personality, smart, well educated, from well cultural and a religious family background. having respect in heart for others. would like to thanks you for visiting through my daughter;s profile. She has done PG
+                in Human Resources after her graduation. At present working IN INSURANCE sector as Manager Training .
+            </p>
+            <h4>About her Family</h4>
+            <p>
+                About her family she belongs to a religious and a well cultural family background. Father - Retired from a Co-operate Bank as a Manager. Mother - she is a home maker. 1 younger brother - works for Life Insurance n manages cluster.
+            </p>
+            <h4>Education </h4>
+            <p>I have done PG in Human Resourses</p>
+            <h4>Occupation</h4>
+            <p>At present Working in Insurance sector</p>
+
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="email">Culture:</label>
+                <p></p>
+            </div>
+            <div class="form-group">
+                <label for="email">Allegiances:</label>
+                <p>{{character?.tvSeries}}</p>
+            </div>
+            <div class="form-group">
+                <label for="email">In Books:</label>
+                <p>{{character?.bookIds}}</p>
+            </div>
+            <div class="form-group">
+                <label for="email">Played By:</label>
+                <p>{{character?.playedBy}}</p>
+            </div>
+        </div>
+    </div>
+</div>

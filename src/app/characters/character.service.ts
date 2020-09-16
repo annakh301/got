@@ -8,7 +8,7 @@ export class CharacterService {
     charactersChanged = new Subject<Character[]>();
     characterChanged = new Subject<Character>();
     private characters: Character[] = [];
-    private character: Character = new Character();
+    private character: Character;
     constructor() { }
 
     setCharacters(characters: Character[]) {

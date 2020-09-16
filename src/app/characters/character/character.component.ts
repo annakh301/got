@@ -25,7 +25,6 @@ export class CharacterComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          //TODO: get the state to the different component
           this.apiService.getCharacter(this.id.toString())
         }
       )

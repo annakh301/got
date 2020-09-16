@@ -5,7 +5,6 @@ import { Character } from './character.model';
 import { ApiService } from '../api.service';
 import { PageEvent } from '@angular/material/paginator';
 import { HttpClient } from '@angular/common/http';
-import { Search } from '../search.model';
 
 @Component({
   selector: 'app-characters',
@@ -45,7 +44,7 @@ export class CharactersComponent implements OnInit, OnDestroy {
 
   getPic(srcPath: string) {
     this.http
-      .get<Search>(srcPath)
+      .get(srcPath)
       .subscribe(response => {
         console.log(response)
         /* for (var i = 0; i < response.items.length; i++) {
