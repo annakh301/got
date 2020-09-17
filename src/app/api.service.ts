@@ -8,7 +8,6 @@ import { CharacterService } from './characters/character.service';
 import { Character } from './characters/character.model';
 import { Book } from './books/book.model';
 import { House } from './houses/house.model';
-import { JsonPipe } from '@angular/common';
 
 
 @Injectable({ providedIn: 'root' })
@@ -30,8 +29,49 @@ export class ApiService {
                 { params: searchParams })
             .subscribe(books => {
                 this.bookService.setBooks(books);
-
             });
+    }
+    getBooksFilter(urls: string[]) {
+        var filtered = []
+        this.http
+            .get<Book[]>('https://anapioficeandfire.com/api/books')
+            .subscribe(books => {
+                for (let index = 0; index < urls.length; index++) {
+                    var result = books.find(x => (this.getIdFromUrl(x.url) === this.getIdFromUrl(urls[index])))
+                    filtered.push(result)
+                }
+                this.bookService.setBooks(filtered);
+            });
+    }
+
+    getHousesFilter(urls: string[]) {
+        var filtered = []
+        this.http
+            .get<House[]>('https://anapioficeandfire.com/api/houses')
+            .subscribe(houses => {
+                for (let index = 0; index < urls.length; index++) {
+                    var result = houses.find(x => (this.getIdFromUrl(x.url) === this.getIdFromUrl(urls[index])))
+                    filtered.push(result)
+                    console.log(result)
+                }
+                this.houseService.setHouses(filtered);
+            });
+    }
+    getCharacterFilter(urls: string[]) {
+        var filtered = []
+        this.http
+            .get<Character[]>('https://anapioficeandfire.com/api/characters')
+            .subscribe(characters => {
+                for (let index = 0; index < urls.length; index++) {
+                    var result = characters.find(x => { return (this.getIdFromUrl(x.url) === this.getIdFromUrl(urls[index])) })
+                    filtered.push(result)
+                }
+                this.characterService.setCharacters(filtered);
+            });
+    }
+
+    getIdFromUrl(url: string) {
+        return url.substring(url.lastIndexOf('/') + 1);
     }
 
     getCharacters(pageNumber?: string, pageSize?: string) {
@@ -48,9 +88,11 @@ export class ApiService {
 
     getCharacter(id: string) {
         this.http
-            .get<Character>('https://anapioficeandfire.com/api/characters/'+id)
+            .get<Character>('https://anapioficeandfire.com/api/characters/' + id)
             .subscribe(character => {
                 this.characterService.setCharacter(character);
+                this.getBooksFilter(character.books)
+                this.getHousesFilter(character.allegiances)
             })
     }
 

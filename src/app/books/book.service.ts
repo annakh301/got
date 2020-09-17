@@ -1,6 +1,6 @@
 import { Book } from "./book.model";
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable()
 export class BookService {
@@ -18,7 +18,7 @@ export class BookService {
         return this.books.slice();
     }
 
-    getBook(index: number) {
+    getBook(index: number): Book {
         return this.books[index];
     }
 

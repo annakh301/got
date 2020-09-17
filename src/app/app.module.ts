@@ -1,7 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +38,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+    IdPipe,
     AppComponent,
     HeaderComponent,
     CharactersComponent,
@@ -47,12 +47,10 @@ const appRoutes: Routes = [
     CharacterComponent,
     HouseComponent,
     BookComponent,
-    IdPipe
   ],
   imports: [
-    BrowserModule,
     CommonModule,
-    FormsModule,
+    BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FlexLayoutModule,

@@ -19,7 +19,7 @@ export class House {
     public swornMemberIds: Character["url"][]
 
 
-	constructor($url: string, $name?: string, $region?: string, $coatOfArms?: string, $words?: string, $titles?: string[], $seats?: string[], $founded?: string, $founder?: string, $diedOut?: string, $ancestralWeapons?: string[]) {
+	constructor($url: string, $name: string, $region: string, $coatOfArms: string, $words: string, $titles: string[], $seats: string[], $founded: string, $founder: string, $diedOut: string, $ancestralWeapons: string[]) {
 		this.url = $url;
 		this.name = $name;
 		this.region = $region;

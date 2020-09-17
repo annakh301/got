@@ -13,7 +13,7 @@ export class Book {
     public characterIds: Character["url"][];
 
 
-	constructor($url: string, $name?: string, $isbn?: string, $authors?: string[], $numberOfPages?: number, $publisher?: string, $country?: string, $mediaType?: string, $released?: Date, $characterIds?: string[]) {
+	constructor($url: string, $name: string, $isbn: string, $authors: string[], $numberOfPages: number, $publisher: string, $country: string, $mediaType: string, $released: Date, $characterIds: string[]) {
 		this.url = $url;
 		this.name = $name;
 		this.isbn = $isbn;

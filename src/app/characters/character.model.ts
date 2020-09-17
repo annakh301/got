@@ -14,14 +14,14 @@ export class Character {
     public fatherId: string;
     public motherId: string;
     public spouseId: string;
-    public allegianceIds: House["url"][];
-    public bookIds: Book["url"][];
-    public povBookIds: Book["url"][];
+    public allegiances: House["url"][];
+    public books: Book["url"][];
+    public povBooks: Book["url"][];
     public tvSeries: string[];
     public playedBy: string;
 
 
-    constructor($url: string, $name?: string, $gender?: string, $culture?: string, $born?: string, $died?: string, $titles?: string[], $aliases?: string[], $father?: string, $mother?: string, $spouse?: string, $allegiances?: string[], $bookIds?: string[], $povBookIds?: string[], $tvSeries?: string[], $playedBy?: string) {
+    constructor($url: string, $name: string, $gender: string, $culture: string, $born: string, $died: string, $titles: string[], $aliases: string[], $father: string, $mother: string, $spouse: string, $allegiances: string[], $bookIds: string[], $povBookIds: string[], $tvSeries: string[], $playedBy: string) {
         this.url = $url;
         this.name = $name;
         this.gender = $gender;
@@ -33,9 +33,9 @@ export class Character {
         this.fatherId = $father;
         this.motherId = $mother;
         this.spouseId = $spouse;
-        this.allegianceIds = $allegiances;
-        this.bookIds = $bookIds;
-        this.povBookIds = $povBookIds;
+        this.allegiances = $allegiances;
+        this.books = $bookIds;
+        this.povBooks = $povBookIds;
         this.tvSeries = $tvSeries;
         this.playedBy = $playedBy;
     }
